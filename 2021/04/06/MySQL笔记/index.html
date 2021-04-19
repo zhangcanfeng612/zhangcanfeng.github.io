@@ -142,7 +142,7 @@
                     <div class="author">
                         <span class="name">ZhangCanFeng</span>
                         
-                            <span class="author-label">Lv1</span>
+                            <span class="author-label">Trainee</span>
                         
                     </div>
                     <div class="meta-info">
@@ -165,22 +165,53 @@
         
 
         <div class="article-content markdown-body">
-            <hr>
-<p>title: mysql<br>date: 2021-04-05 23:13:01<br>tags:</p>
-<hr>
-<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><code>DB: 数据库(database) 用于储存数据的&quot;仓库&quot;。它保存了一系列有组织的数据</code><br/><br><code>DBMS: 数据库管理系统(Database Management System)。又称为数据库管理软件，用于管理DB中的数据</code><br/><br><code>SQL: 结构化查询语言(Structure Query Language)。专门用来与数据库通信的语言</code><br/></p>
-<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Mac:</span><br><span class="line"></span><br><span class="line">启动: sudo &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;mysql.server start</span><br><span class="line">停止: sudo &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;mysql.server stop</span><br><span class="line">重启: sudo &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;mysql.server restart</span><br><span class="line">登录: mysql -u root -p 或者 mysql -uroot -p -P$&#123;port&#125; -h$&#123;host&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><code>DB: 数据库(database) 用于储存数据的&quot;仓库&quot;。它保存了一系列有组织的数据</code><br/><br><code>DBMS: 数据库管理系统(Database Management System)。又称为数据库管理软件，用于管理DB中的数据</code><br/><br><code>SQL: 结构化查询语言(Structure Query Language)。专门用来与数据库通信的语言</code><br/></p>
+<h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Mac:</span><br><span class="line"></span><br><span class="line">启动: sudo &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;mysql.server start</span><br><span class="line">停止: sudo &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;mysql.server stop</span><br><span class="line">重启: sudo &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;support-files&#x2F;mysql.server restart</span><br><span class="line">登录: mysql -uroot -p$&#123;password&#125; 或者 mysql -uroot -p$&#123;password&#125;【-P$&#123;port&#125; -h$&#123;host&#125;】</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">windows:</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">windows:(以管理员身份运行cmd)</span><br><span class="line">配置环境变量: 系统属性 -&gt; 环境变量 -&gt; 系统变量 -&gt; Path -&gt; 加入mysql bin目录路径</span><br><span class="line">获取服务名称: cmd -&gt; services.msc(服务)</span><br><span class="line">启动: net start $&#123;servername&#125;</span><br><span class="line">停止: net stop $&#123;servername&#125;</span><br><span class="line">登录: mysql -uroot -p$&#123;password&#125; 或者 mysql -uroot -p$&#123;password&#125; 【-P$&#123;port&#125; -h$&#123;host&#125;】</span><br></pre></td></tr></table></figure>
 
 
 
 <h3 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h3><p><img src="img.png"></p>
+<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; 查看数据库版本: SELECT version(); </span><br><span class="line">&gt; 查看当前所有数据库: SHOW databases;</span><br><span class="line">&gt; 打开指定的数据库: USE 库名;</span><br><span class="line">&gt; 查看当前库的所有表: SHOW tables; </span><br><span class="line">&gt; 查看其他库的所有表: SHOW tables FROM 库名; &#x3D;&gt; 此时并没有切换数据库表</span><br><span class="line">&gt; 查看当前所在的数据库: SELECT database();</span><br><span class="line">&gt; 查看表结构: DESC 表名;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="语法规范"><a href="#语法规范" class="headerlink" title="语法规范"></a>语法规范</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.不区分大小写(建议关键字大写，表明和列名小写)</span><br><span class="line">2.每条命令使用分号结尾</span><br><span class="line">3.每条命令根据需要，可以进行缩进、或者换行</span><br><span class="line">4.注释：单行注释 # 注释文字</span><br><span class="line">       单行注释 -- 单行注释</span><br><span class="line">       多行注释 &#x2F;* 注释文字 *&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h3 id="DQL语言"><a href="#DQL语言" class="headerlink" title="DQL语言"></a>DQL语言</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">基础查询</span><br><span class="line">语法： SELECT 查询列表 FORM 表名;</span><br><span class="line">特点：1.查询列表包括: 表中的字段、常量值、表达式、函数</span><br><span class="line">     2.查询的结构是一个虚拟的表格</span><br><span class="line">示例：&gt; 查询表中的单个字段 SELECT field_nane FROM table;</span><br><span class="line">     &gt; 查询表中的多个字段 SELECT field_nane1,field_nane2 FROM table</span><br><span class="line">     &gt; 查询函数  SELECT VERSION()</span><br><span class="line">     &gt;  别名 SELECT field_nane1 AS 字段一 ,field_nane2 AS 字段二 , FROM table (AS关键字可以省略)</span><br><span class="line">     &gt; 去重 SELECT DISTINCT field_nane FROM table</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">条件查询</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排序查询</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">常见函数</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
 
         </div>
 
         
 
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/04/19/%E5%AE%9A%E8%A5%BF/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">定西</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+            </div>
         
 
         
